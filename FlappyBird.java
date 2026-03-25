@@ -1,6 +1,7 @@
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Graphics;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
@@ -29,7 +30,15 @@ public class FlappyBird extends JPanel{
 
         bottomPipeImg = new ImageIcon(getClass().getResource("./assets/bottompipe.png"))
             .getImage();
+    }
 
+    public void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        draw(g);
+    }
+
+    public void draw(Graphics g) {
+        g.drawImage(backgroundImg, 0, 0, width, height, null);   
     }
 
     
