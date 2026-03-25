@@ -1,7 +1,5 @@
 import javax.swing.JFrame;
 
-
-
 public class Main {
 
     public static void main(String[] args) {
@@ -18,7 +16,5 @@ public class Main {
         jframe.add(flappyBird);
         jframe.pack();
         jframe.setVisible(true);
-        
-
     }
 }
