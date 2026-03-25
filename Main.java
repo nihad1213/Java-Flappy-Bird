@@ -1,4 +1,3 @@
-
 import javax.swing.JFrame;
 
 
@@ -10,10 +9,15 @@ public class Main {
         int height = 640;
 
         JFrame jframe = new JFrame("Flappy Bird");
-        jframe.setVisible(true);
         jframe.setSize(width, height);
         jframe.setLocationRelativeTo(null);
         jframe.setResizable(false);
         jframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        FlappyBird flappyBird = new FlappyBird();
+        jframe.add(flappyBird);
+        jframe.pack();
+        jframe.setVisible(true);
+
     }
 }
