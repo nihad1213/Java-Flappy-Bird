@@ -27,6 +27,8 @@ public class FlappyBird extends JPanel implements ActionListener{
     int gravity = 1;
     int jumpStrength = -15;
 
+    boolean gameOver = false;
+
     class Bird {
         int x = birdX;
         int y = birdY;
@@ -99,6 +101,9 @@ public class FlappyBird extends JPanel implements ActionListener{
         if (bird.y + bird.height > height) {
             bird.y = height - bird.height;
             velocityY = 0;
+            gameOver = true;
+            gameLoop.stop(); 
+            System.out.println("Game Over!");
         }
 
         bird.y += velocityY;
