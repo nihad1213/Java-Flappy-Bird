@@ -3,10 +3,13 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
+import javax.swing.Timer;
 
-public class FlappyBird extends JPanel{
+public class FlappyBird extends JPanel implements ActionListener{
     int width = 360;
     int height = 640;
 
@@ -34,6 +37,9 @@ public class FlappyBird extends JPanel{
 
     Bird bird;
 
+    Timer gameLoop;
+
+
     public FlappyBird() {
         setPreferredSize(new Dimension(width, height));
         setBackground(Color.BLUE);
@@ -51,6 +57,9 @@ public class FlappyBird extends JPanel{
             .getImage();
 
         bird = new Bird(birdImg);
+
+        gameLoop = new Timer(1000 / 60, this);
+        gameLoop.start();
     }
 
     public void paintComponent(Graphics g) {
@@ -59,8 +68,14 @@ public class FlappyBird extends JPanel{
     }
 
     public void draw(Graphics g) {
+        System.out.println("draw");
         g.drawImage(backgroundImg, 0, 0, width, height, null);
         g.drawImage(bird.img, bird.x, bird.y, bird.width, bird.height, null);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        repaint();
     }
 
     
