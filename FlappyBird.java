@@ -78,6 +78,7 @@ public class FlappyBird extends JPanel implements ActionListener{
         gameLoop.start();
     }
 
+    @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         draw(g);
