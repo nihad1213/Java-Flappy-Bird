@@ -15,6 +15,25 @@ public class FlappyBird extends JPanel{
     Image topPipeImg;
     Image bottomPipeImg;
 
+    int birdX = width / 8;
+    int birdY = height / 2;
+    int birdWidth = 34;
+    int birdHeight = 24;
+
+    class Bird {
+        int x = birdX;
+        int y = birdY;
+        int width = birdWidth;
+        int height = birdHeight;
+        Image img;
+
+        Bird(Image img) {
+            this.img = img;
+        }
+    }
+
+    Bird bird;
+
     public FlappyBird() {
         setPreferredSize(new Dimension(width, height));
         setBackground(Color.BLUE);
@@ -30,6 +49,8 @@ public class FlappyBird extends JPanel{
 
         bottomPipeImg = new ImageIcon(getClass().getResource("./assets/bottompipe.png"))
             .getImage();
+
+        bird = new Bird(birdImg);
     }
 
     public void paintComponent(Graphics g) {
@@ -38,7 +59,8 @@ public class FlappyBird extends JPanel{
     }
 
     public void draw(Graphics g) {
-        g.drawImage(backgroundImg, 0, 0, width, height, null);   
+        g.drawImage(backgroundImg, 0, 0, width, height, null);
+        g.drawImage(bird.img, bird.x, bird.y, bird.width, bird.height, null);
     }
 
     
