@@ -18,6 +18,7 @@ public class Main {
         jframe.add(flappyBird);
         jframe.pack();
         jframe.setVisible(true);
+        
 
     }
 }
